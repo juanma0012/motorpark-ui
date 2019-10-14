@@ -1,0 +1,15 @@
+.greetingList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.greetingList > ul {
+    text-align: left;
+}
+
+.greetingItem {
+    font-size: 1em;
+    color: #535353;
+    padding: 5px;
+}
