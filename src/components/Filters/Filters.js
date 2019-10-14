@@ -21,7 +21,7 @@ export const Vehicles = ({ vehicles, isLoading }) => {
             setProgress(oldProgress => (oldProgress >= 100 ? 0 : oldProgress + 1));
         }
 
-        const timer = setInterval(tick, 20);
+        const timer = setInterval(tick, 2);
         return () => {
             clearInterval(timer);
         };
@@ -44,8 +44,8 @@ Vehicles.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    vehicles: state.vehiclesState.vehicles,
-    isLoading: state.vehiclesState.isLoading
+    vehicles: state.vehiclesReducer.vehicles,
+    isLoading: state.vehiclesReducer.isLoading
 });
 
 export default connect(

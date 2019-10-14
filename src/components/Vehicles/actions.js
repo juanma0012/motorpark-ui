@@ -19,10 +19,33 @@ export const removeVehicle = (vehicleId) => {
         motorpark.removeVehicle(vehicleId).then(result => {
             dispatch({ type: actionTypes.REMOVED_VEHICLE, message: "The vehicle was removed successfully" });
             let state = getState();
-            dispatch(getVehicles(state.vehiclesReducer.filters));
+            dispatch(getVehicles(state.vehiclesState.filters));
         }, error => {
             dispatch(invalidRequest(`Error trying  to delete the Vehicle. ${error}`));
         });
+    }
+};
+
+export const saveVehicle = (vehicle) => {
+    return (dispatch, getState) => {
+        dispatch(requestSaveVehicle(vehicle));
+        if (vehicle.id) {
+            motorpark.editVehicle(vehicle.id, vehicle).then(result => {
+                dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was updated successfully" });
+                let state = getState();
+                dispatch(getVehicles(state.vehiclesState.filters));
+            }, error => {
+                dispatch(invalidRequest(`Error trying to update the Vehicle. ${error}`));
+            });
+        } else {
+            motorpark.addVehicle(vehicle).then(result => {
+                dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was added successfully" });
+                let state = getState();
+                dispatch(getVehicles(state.vehiclesState.filters));
+            }, error => {
+                dispatch(invalidRequest(`Error trying to added the Vehicle. ${error}`));
+            });
+        }
     }
 };
 
@@ -31,6 +54,9 @@ export const requestVehicles = (filters) => {
 };
 export const requestDeleteVehicle = (vehicleId) => {
     return { type: actionTypes.REQUEST_REMOVE_VEHICLE, vehicleId };
+};
+export const requestSaveVehicle = (vehicle) => {
+    return { type: actionTypes.REQUEST_SAVE_VEHICLE, vehicle };
 };
 export const invalidRequest = (error) => {
     return { type: actionTypes.INVALID_REQUEST, error };

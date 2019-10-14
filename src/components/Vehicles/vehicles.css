@@ -1,8 +1,0 @@
-.vehicles{
-    display: flex;
-    flex-direction: column;
-}
-
-.vehicle{
-    width: 100%;
-}

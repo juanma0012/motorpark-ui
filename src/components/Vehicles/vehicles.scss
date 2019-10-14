@@ -1,0 +1,24 @@
+.vehicles {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle {
+    width: 100%;
+}
+
+.vehicleCard {
+    .marginLeft {
+        margin-left: auto;
+    }
+
+    .cardContent {
+        display: flex;
+        flex-wrap: wrap;
+
+        .formControl {
+            margin: 10px;
+            min-width: 120px;
+        }
+    }
+}

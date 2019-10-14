@@ -1,0 +1,14 @@
+.vehicles {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle {
+    width: 100%;
+}
+
+.vehicleCard {
+    .marginLeft {
+        margin-left: auto;
+    }
+}

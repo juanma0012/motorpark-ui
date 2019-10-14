@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from './actions';
+import VehicleCard from './VehicleCard';
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -13,10 +14,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import TimeToLeave from '@material-ui/icons/TimeToLeave';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import Card from '@material-ui/core/Card';
 import Collapse from '@material-ui/core/Collapse';
 
-import './vehicles.css';
+import './vehicles.scss';
 
 const Vehicle = ({ data, onAskRemoveVehicle }) => {
     const [open, setOpen] = React.useState(false);
@@ -50,9 +50,7 @@ const Vehicle = ({ data, onAskRemoveVehicle }) => {
                 </ListItemSecondaryAction>
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
-                <Card>
-                    
-                </Card>
+                {open ? <VehicleCard vehicle={data} onCancel={handleClick}/> : null}
             </Collapse>
         </React.Fragment >
     );

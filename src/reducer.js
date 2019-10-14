@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import vehiclesReducer from './components/Vehicles/reducer';
+import vehiclesState from './components/Vehicles/reducer';
+import filtersState from './components/Filters/reducer';
 
 export default combineReducers({
-    vehiclesReducer
+    vehiclesState,
+    filtersState
 });
