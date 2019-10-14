@@ -37,3 +37,9 @@ export const getTypes = () => {
 export const invalidRequest = (error) => {
     return { type: actionTypes.INVALID_REQUEST, error };
 };
+
+export const filterByMake = () => {
+    return (dispatch, getState) => {
+
+    }
+};

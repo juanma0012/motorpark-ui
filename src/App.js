@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Container from '@material-ui/core/Container';
-import './App.css';
-import Vehicles from './components/Vehicles/Vehicles';
-import DeleteDialog from './components/Vehicles/DeleteDialog';
+import './App.scss';
+import AppContainer from './components/AppContainer';
 import * as vehiclesActions from './components/Vehicles/actions';
 import * as filtersActions from './components/Filters/actions';
 
@@ -18,10 +16,7 @@ class App extends Component {
     }
     render() {
         return (
-            <Container maxWidth="sm">
-                <DeleteDialog />
-                <Vehicles />
-            </Container>
+            <AppContainer />
         );
     }
 }
