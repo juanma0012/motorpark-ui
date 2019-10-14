@@ -1,15 +1,8 @@
-.greetingList{
+.vehicles{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    flex-direction: column;
 }
 
-.greetingList > ul {
-    text-align: left;
-}
-
-.greetingItem {
-    font-size: 1em;
-    color: #535353;
-    padding: 5px;
+.vehicle{
+    width: 100%;
 }

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Vehicle from './Vehicle';
+import List from '@material-ui/core/List';
 import * as actions from './actions';
 import './vehicles.css';
 
@@ -13,12 +14,14 @@ export const Vehicles = ({ vehicles, onGetVehicles }) => {
         onGetVehicles(null);
     }
     return (
-        <div className="Vehicles">
-            <button onClick={clickTest}>Test it</button>
-            <ul>
+        <React.Fragment>
+            <div className="Vehicles">
+                <button onClick={clickTest}>Test it</button>
+            </div>
+            <List className="vehicles">
                 {vehiclesReady}
-            </ul>
-        </div>
+            </List>
+        </React.Fragment>
     )
 };
 

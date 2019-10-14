@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Container from '@material-ui/core/Container';
 import './App.css';
 import Vehicles from './components/Vehicles/Vehicles';
+import DeleteDialog from './components/Vehicles/DeleteDialog';
 
 class App extends Component {
     constructor(props) {
@@ -11,9 +13,10 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="app">
+            <Container maxWidth="sm">
+                <DeleteDialog />
                 <Vehicles />
-            </div>
+            </Container>
         );
     }
 }
