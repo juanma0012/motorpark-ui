@@ -1,68 +1,194 @@
-This project is running  [here](http://motorpark.s3.amazonaws.com/index.html).
 
-## Available Scripts
+  
 
-In the project directory, you can run:
+# Motor Park UI
 
-### `npm start`
+  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This APP provides different features to manage a motor park, includes CRUD and filter the elements depends on conditions.
 
-### `npm test`
+  
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Interactions
 
-### `npm run build`
+  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Get Vehicles
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Returns a list of vehicles 
+- Each item has: make, model, type and year.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Add Vehicle
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+When you click in the Add button, you're able to enter data for a vehicle using a Card where there are Selects with data for Makes, Types, Models and an input for the Year.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Edit Vehicle
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+When you click on an item of the list, there is a collapse object where you're able to change the data that the vehicle contains.
 
-## Learn More
+  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Remove Vehicle
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+When you click on the Trash icon in the element, a modal window will be opened to validate that you can delete the vehicle selected.
 
-### Code Splitting
+  
+### Get Makes
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+On the left drawer, there is a multi select option to define which makes you want to filter the vehicles.
 
-### Analyzing the Bundle Size
+### Get Types
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+On the left drawer, there is a checkbox list to define which types you want to filter the vehicles.
+  
 
-### Making a Progressive Web App
+### Get Models
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+On the left drawer, there is a checkbox list to define which models you want to filter the vehicles. Note: this option depends which data you have marked in make and type options. 
+  
+  
+# How to use it
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Install
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Install the dependencies
 
-### `npm run build` fails to minify
+> npm i
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Create the file **.env** in the main directory of the app. This file contains the environment variables where the app will get the data to connect the API and other settings:
+
+  
+
+```
+REACT_APP_API_ENDPOINT = "http://localhost:3333"
+```
+
+  
+
+>  **Note:** The data that you put there has to match with either the development or production environments that you have.
+  
+## Development
+
+Create the file **.env.development** and enter the variables that you need to run locally
+```
+REACT_APP_API_ENDPOINT = "http://localhost:3333"
+```
+In the command line, go to the repository folder and execute:
+
+> npm run start
+
+The app will be available in http://localhost:3000/ (depends on you configuration)
+
+  
+
+## Production
+
+Create the file **.env.production** and enter the variables that you need to run in a real production environment
+```
+REACT_APP_API_ENDPOINT = "http://ec2-3-83-93-116.compute-1.amazonaws.com:3333"
+```
+  To generate the bundle that it's going to be in the production bucket, execute:
+  
+
+> npm run build
+
+  Deploy the build folder to the S3 bucket or the server where the app is going to be released  
+
+  
+
+# General Information
+
+  
+
+  This project is running here [http://motorpark.s3-website-us-east-1.amazonaws.com/](http://motorpark.s3-website-us-east-1.amazonaws.com/).
+
+## Screenshots
+You can find some ScreenShots of the app in the folder 'screenshots'. It includes SS for desktop and mobile designs.
+
+Screenshot 1
+![ScreenShot 1](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS1.png)
+
+Screenshot 2
+![ScreenShot 2](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS2.png)
+
+Screenshot 3
+![ScreenShot 3](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS3.png)
+
+Screenshot 4
+![ScreenShot 4](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS4.png)
+
+Screenshot 5
+![ScreenShot 5](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS5.png)
+
+Screenshot 6
+![ScreenShot 6](https://raw.githubusercontent.com/juanma0012/motorpark-ui/master/screenshots/SS6.png)
+
+## Tree folder
+These is the general tree of the repository
+
+````
+
+ .
+├── LICENSE
+├── README.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+├── screenshots
+│   ├── SS1.png
+│   ├── SS2.png
+│   ├── SS3.png
+│   ├── SS4.png
+│   ├── SS5.png
+│   └── SS6.png
+└── src
+    ├── App.js
+    ├── App.scss
+    ├── App.test.js
+    ├── components
+    │   ├── AppContainer.js
+    │   ├── Filters
+    │   │   ├── FilterMakes.js
+    │   │   ├── FilterModels.js
+    │   │   ├── FilterTypes.js
+    │   │   ├── Filters.js
+    │   │   ├── actionTypes.js
+    │   │   ├── actions.js
+    │   │   ├── filters.scss
+    │   │   └── reducer.js
+    │   └── Vehicles
+    │       ├── DeleteDialog.js
+    │       ├── Vehicle.js
+    │       ├── VehicleCard.js
+    │       ├── Vehicles.js
+    │       ├── actionTypes.js
+    │       ├── actions.js
+    │       ├── reducer.js
+    │       └── vehicles.scss
+    ├── config
+    │   └── variables.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reducer.js
+    ├── serviceWorker.js
+    └── services
+        ├── motorparkService.js
+        └── utility.js
+
+````
+
+  
+
+I hope you enjoy working with this APP.
