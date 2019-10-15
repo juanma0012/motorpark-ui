@@ -12,7 +12,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-export const VehicleCard = ({ vehicle, makes, types, models, onSaveVehicle, onCancel }) => {
+export const VehicleCard = ({ vehicle, makes, types, models, onSaveVehicle, onClose }) => {
 
     const [values, setValues] = React.useState({
         makeId: vehicle ? vehicle.make_id : '',
@@ -27,11 +27,12 @@ export const VehicleCard = ({ vehicle, makes, types, models, onSaveVehicle, onCa
                 model: values.modelId,
                 year: values.year
             });
+            onClose();
         }
     }
 
     const clickCancel = e => {
-        onCancel();
+        onClose();
     }
 
     const makeItems = makes.map(make => (

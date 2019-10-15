@@ -50,7 +50,7 @@ const Vehicle = ({ data, onAskRemoveVehicle }) => {
                 </ListItemSecondaryAction>
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
-                {open ? <VehicleCard vehicle={data} onCancel={handleClick}/> : null}
+                {open ? <VehicleCard vehicle={data} onClose={handleClick}/> : null}
             </Collapse>
         </React.Fragment >
     );
