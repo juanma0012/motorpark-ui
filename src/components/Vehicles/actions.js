@@ -2,9 +2,16 @@ import * as actionTypes from './actionTypes';
 import motorparkService from '../../services/motorparkService'
 
 const motorpark = new motorparkService();
-export const getVehicles = (filters) => {
-    return dispatch => {
-        dispatch(requestVehicles(filters));
+export const getVehicles = () => {
+    return (dispatch, getState) => {
+        let state = getState();
+        let filters = {
+            make: state.filtersState.filterByMakes,
+            type: state.filtersState.filterByTypes,
+            model: state.filtersState.filterByModels,
+            year_since: state.filtersState.filterYearSince,
+            year_until: state.filtersState.filterYearUntil
+        };
         motorpark.getVehicles(filters).then(vehicles => {
             dispatch({ type: actionTypes.GET_VEHICLES, vehicles });
         }, error => {
@@ -19,7 +26,7 @@ export const removeVehicle = (vehicleId) => {
         motorpark.removeVehicle(vehicleId).then(result => {
             dispatch({ type: actionTypes.REMOVED_VEHICLE, message: "The vehicle was removed successfully" });
             let state = getState();
-            dispatch(getVehicles(state.vehiclesState.filters));
+            dispatch(getVehicles());
         }, error => {
             dispatch(invalidRequest(`Error trying  to delete the Vehicle. ${error}`));
         });
@@ -33,7 +40,7 @@ export const saveVehicle = (vehicle) => {
             motorpark.editVehicle(vehicle.id, vehicle).then(result => {
                 dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was updated successfully" });
                 let state = getState();
-                dispatch(getVehicles(state.vehiclesState.filters));
+                dispatch(getVehicles());
             }, error => {
                 dispatch(invalidRequest(`Error trying to update the Vehicle. ${error}`));
             });
@@ -41,7 +48,7 @@ export const saveVehicle = (vehicle) => {
             motorpark.addVehicle(vehicle).then(result => {
                 dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was added successfully" });
                 let state = getState();
-                dispatch(getVehicles(state.vehiclesState.filters));
+                dispatch(getVehicles());
             }, error => {
                 dispatch(invalidRequest(`Error trying to added the Vehicle. ${error}`));
             });
@@ -49,9 +56,6 @@ export const saveVehicle = (vehicle) => {
     }
 };
 
-export const requestVehicles = (filters) => {
-    return { type: actionTypes.REQUEST_VEHICLES, filters };
-};
 export const requestDeleteVehicle = (vehicleId) => {
     return { type: actionTypes.REQUEST_REMOVE_VEHICLE, vehicleId };
 };

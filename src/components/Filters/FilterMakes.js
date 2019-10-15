@@ -325,8 +325,7 @@ function FilterMakes({ makes, onFilterByMake }) {
 
     const handleChangeMulti = value => {
         setMulti(value);
-        console.log("multi",multi);
-        // onFilterByMake(multi);
+        onFilterByMake(value.map(element => element.value));
     };
 
     const selectStyles = {
@@ -369,9 +368,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onFilterByMake: (makes) => dispatch(actions.filterByMake(makes))
+    onFilterByMake: (makes) => dispatch(actions.filterByMakes(makes))
 });
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(FilterMakes);

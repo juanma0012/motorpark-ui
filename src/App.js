@@ -22,7 +22,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    onGetVehicles: () => dispatch(vehiclesActions.getVehicles(null)),
+    onGetVehicles: () => dispatch(vehiclesActions.getVehicles()),
     onGetMakes: () => dispatch(filtersActions.getMakes()),
     onGetTypes: () => dispatch(filtersActions.getTypes()),
 });

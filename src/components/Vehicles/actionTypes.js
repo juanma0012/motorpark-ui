@@ -1,5 +1,4 @@
 export const GET_VEHICLES = 'vehicles/GET_VEHICLES';
-export const REQUEST_VEHICLES = 'vehicles/REQUEST_VEHICLES';
 export const INVALID_REQUEST = 'vehicles/INVALID_REQUEST';
 export const SAVED_VEHICLE = 'vehicles/SAVED_VEHICLE';
 export const REQUEST_SAVE_VEHICLE = 'vehicles/REQUEST_SAVE_VEHICLE';

@@ -4,7 +4,6 @@ import * as actionTypes from './actionTypes';
 const initialState = {
     vehicles: [],
     isLoading: true,
-    filters: null,
     status: '',
     vehicleToRemove: null,
     vehicleToSave: null
@@ -14,15 +13,7 @@ const getVehicles = (state, action) => {
     return updateObject(state, {
         vehicles: action.vehicles,
         status: '',
-        isLoading: false,
-        filters: ''
-    });
-};
-
-const requestVehicles = (state, action) => {
-    return updateObject(state, {
-        filters: action.filters,
-        isLoading: true
+        isLoading: false
     });
 };
 
@@ -60,7 +51,6 @@ const savedVehicle = (state, action) => {
 
 export default createReducer(initialState, {
     [actionTypes.GET_VEHICLES]: getVehicles,
-    [actionTypes.REQUEST_VEHICLES]: requestVehicles,
     [actionTypes.INVALID_REQUEST]: invalidRequest,
     [actionTypes.ASK_REMOVE_VEHICLE]: askRemoveVehicle,
     [actionTypes.REMOVED_VEHICLE]: removedVehicle,
