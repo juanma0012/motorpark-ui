@@ -48,6 +48,13 @@ export const filterByTypes = (types) => {
     }
 };
 
+export const filterByModels = (models) => {
+    return dispatch => {
+        dispatch({ type: actionTypes.FILTER_BY_MODELS, models });
+        dispatch(getVehicles());
+    }
+};
+
 export const invalidRequest = (error) => {
     return { type: actionTypes.INVALID_REQUEST, error };
 };

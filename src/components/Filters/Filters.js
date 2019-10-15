@@ -4,6 +4,7 @@ import Divider from '@material-ui/core/Divider';
 import './filters.scss';
 import FilterMakes from './FilterMakes';
 import FilterTypes from './FilterTypes';
+import FilterModels from './FilterModels';
 
 export const Filters = () => {
 
@@ -15,6 +16,12 @@ export const Filters = () => {
                 Types
             </div>
             <FilterTypes />
+            <Divider />
+            <div className="subtitle">
+                Models
+            </div>
+            <FilterModels />
+
         </div>
     )
 };

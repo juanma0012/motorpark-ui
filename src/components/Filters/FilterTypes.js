@@ -10,7 +10,7 @@ export const FilterTypes = ({ types, onFilterByType }) => {
 
     const [state, setState] = useState({});
 
-    const handleChange = (id, type) => event => {
+    const handleChange = id => event => {
         setState({ ...state, [id]: event.target.checked });
     };
 
@@ -18,7 +18,7 @@ export const FilterTypes = ({ types, onFilterByType }) => {
         let typeIds = [];
         for (let id in state) {
             if (state[id]) {
-                typeIds.push(id)
+                typeIds.push(parseInt(id))
             }
         }
         onFilterByType(typeIds);

@@ -37,12 +37,20 @@ const getTypes = (state, action) => {
 const filterByMakes = (state, action) => {
     return updateObject(state, {
         filterByMakes: action.makes,
+        filterByModels: []
     });
 };
 
 const filterByTypes = (state, action) => {
     return updateObject(state, {
         filterByTypes: action.types,
+        filterByModels: []
+    });
+};
+
+const filterByModels = (state, action) => {
+    return updateObject(state, {
+        filterByModels: action.models,
     });
 };
 
@@ -58,5 +66,6 @@ export default createReducer(initialState, {
     [actionTypes.GET_TYPES]: getTypes,
     [actionTypes.FILTER_BY_MAKES]: filterByMakes,
     [actionTypes.FILTER_BY_TYPES]: filterByTypes,
+    [actionTypes.FILTER_BY_MODELS]: filterByModels,
     [actionTypes.INVALID_REQUEST]: invalidRequest
 });
