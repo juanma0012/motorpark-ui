@@ -21,11 +21,10 @@ export const getVehicles = () => {
 };
 
 export const removeVehicle = (vehicleId) => {
-    return (dispatch, getState) => {
+    return dispatch => {
         dispatch(requestDeleteVehicle(vehicleId));
         motorpark.removeVehicle(vehicleId).then(result => {
             dispatch({ type: actionTypes.REMOVED_VEHICLE, message: "The vehicle was removed successfully" });
-            let state = getState();
             dispatch(getVehicles());
         }, error => {
             dispatch(invalidRequest(`Error trying  to delete the Vehicle. ${error}`));
@@ -34,12 +33,12 @@ export const removeVehicle = (vehicleId) => {
 };
 
 export const saveVehicle = (vehicle) => {
-    return (dispatch, getState) => {
+    return dispatch => {
         dispatch(requestSaveVehicle(vehicle));
         if (vehicle.id) {
             motorpark.editVehicle(vehicle.id, vehicle).then(result => {
                 dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was updated successfully" });
-                let state = getState();
+
                 dispatch(getVehicles());
             }, error => {
                 dispatch(invalidRequest(`Error trying to update the Vehicle. ${error}`));
@@ -47,7 +46,7 @@ export const saveVehicle = (vehicle) => {
         } else {
             motorpark.addVehicle(vehicle).then(result => {
                 dispatch({ type: actionTypes.SAVED_VEHICLE, message: "The vehicle was added successfully" });
-                let state = getState();
+
                 dispatch(getVehicles());
             }, error => {
                 dispatch(invalidRequest(`Error trying to added the Vehicle. ${error}`));

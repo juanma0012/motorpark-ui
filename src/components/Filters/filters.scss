@@ -1,3 +1,6 @@
+.filters{
+    margin: 20px;;
+}
 .vehicles {
     display: flex;
     flex-direction: column;
@@ -11,4 +14,10 @@
     .marginLeft {
         margin-left: auto;
     }
+}
+.subtitle{
+    margin: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
 }

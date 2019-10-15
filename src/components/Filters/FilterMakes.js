@@ -325,7 +325,11 @@ function FilterMakes({ makes, onFilterByMake }) {
 
     const handleChangeMulti = value => {
         setMulti(value);
-        onFilterByMake(value.map(element => element.value));
+        if(value){
+            onFilterByMake(value.map(element => element.value));
+        } else {
+            onFilterByMake([]);
+        }
     };
 
     const selectStyles = {

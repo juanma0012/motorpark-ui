@@ -6,10 +6,7 @@ import * as vehiclesActions from './components/Vehicles/actions';
 import * as filtersActions from './components/Filters/actions';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount(){
+    componentDidMount() {
         this.props.onGetVehicles();
         this.props.onGetMakes();
         this.props.onGetTypes();

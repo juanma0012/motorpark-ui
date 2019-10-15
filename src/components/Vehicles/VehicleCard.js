@@ -42,7 +42,7 @@ export const VehicleCard = ({ vehicle, makes, types, models, onSaveVehicle, onCa
     ));
     const modelItems = models.filter(model => {
         if (values.makeId && values.makeId === model.make_id) {
-            if (values.typeId && values.typeId != model.type_id) {
+            if (values.typeId && values.typeId !== model.type_id) {
                 return false;
             }
             return true;
